@@ -1,0 +1,158 @@
+\PassOptionsToPackage{table}{xcolor}
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=0.75in]{geometry}
+\usepackage[T1]{fontenc}
+
+\usepackage{mathptmx}
+\usepackage{tabularx,booktabs,array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{needspace}
+
+\definecolor{cmured}{HTML}{C41230}
+\definecolor{rowgray}{HTML}{F3F3F3}
+\usepackage[table]{xcolor}
+
+\titleformat{\section}{\large\bfseries\color{cmured}}{\thesection.}{0.5em}{}
+\titlespacing*{\section}{0pt}{12pt}{4pt}
+\setlist{itemsep=2pt,topsep=3pt,leftmargin=1.3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\renewcommand{\arraystretch}{1.3}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small Group 19 Team Contract}
+\rhead{\small Intro to AI, Fall 2026, Heinz College}
+\cfoot{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Team Contract}\\[4pt]
+{\large Group 19 \textbullet{} Intro to AI, Fall 2026 \textbullet{} Carnegie Mellon University, Heinz College}\\[2pt]
+{\small Signed September 24, 2026 \textbullet{} Revised October 2026 for the confirmed project and roles}
+\end{center}
+
+\section{Team Information}
+
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}p{3.2cm}L@{}}
+Team name & Group 19 \\
+Client & Interactivity Foundation (IF), Collaborative Discussion Project; contact Jes Friedrichs \\
+Project topic & Toolkit Migration: moving the Collaborative Discussion Toolkit from Wix to the IF Website (confirmed at the October 1 client meeting) \\
+Problem statement & IF's Toolkit of 46 activities lives on a Wix site separate from its main WordPress website, which costs money and splits IF's content. IF is also revising activities and wants future updates to be easy to post. The team will build an agentic workflow that migrates every activity faithfully as a draft for staff approval and gives IF staff a simple way to publish new or revised activities. \\
+Project board & \url{https://github.com/users/nbiswal-star/projects/5} (GitHub Projects kanban board; code repository kept private) \\
+\end{tabularx}
+
+\section{Team Members, Strengths, and Roles}
+
+\rowcolors{2}{rowgray}{white}
+{\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{3.7cm}>{\raggedright\arraybackslash}p{3.1cm}LL@{}}
+\toprule
+\textbf{Member} & \textbf{Role on project} & \textbf{Strengths} & \textbf{Areas to watch and how the team helps} \\
+\midrule
+Joshua Kalakoti\newline{\footnotesize jkalakot@andrew.cmu.edu} & Client communication & Communication, client relations & Limited coding background; may be pulled away by other deadlines. Pairs with the build team for technical client questions and flags busy weeks in advance. \\
+Letu Wang\newline{\footnotesize letuw@andrew.cmu.edu} & Technical build & Coding & Benefits from deadline reminders. Covered by the internal deadline calendar and kanban due dates (Section 4). \\
+Like Cui\newline{\footnotesize jtaebanp@andrew.cmu.edu} & Documentation & Organizational efficiency; building collaborative processes across groups & Procrastination; ideas can be hard to articulate at first. Works to internal deadlines and sketches ideas in a GitHub issue or quick diagram before meetings. \\
+Nibedita Biswal\newline{\footnotesize nbiswal@andrew.cmu.edu} & Technical build; team coordinator & Python, machine learning, neural networks & Overthinking. Time boxes design decisions and ships a working first version before refining. \\
+Yinfeng Liu\newline{\footnotesize yinfengl@andrew.cmu.edu} & Technical build & Python, machine learning, data analysis & Overcommitting. Caps open kanban tasks at a manageable number and raises capacity concerns at check ins. \\
+\bottomrule
+\end{tabularx}}
+\rowcolors{1}{}{}
+
+\textbf{Work distribution.} Letu, Nibedita, and Yinfeng own the GitHub repository and technical build (agentic tools, model integration, skill folder, evaluation, guardrails). Nibedita also coordinates the team (agendas, deadline reminders, check ins). Joshua handles all client communication. Like handles documentation: scope and progress documents, meeting notes, guides, the publicity write up, and submissions. Everyone reviews deliverables before submission.
+
+\section{Availability and Team Norms}
+
+\textbf{Availability.}
+\begin{itemize}
+  \item \textbf{Shared time:} all five members are available every Tuesday and Thursday, 11:00\,am to 12:00\,pm.
+  \item \textbf{Independent work:} beyond the shared block, each member commits roughly 5 to 6 hours per week of independent work on assigned kanban tasks.
+  \item \textbf{Crunch weeks:} in the week before each client meeting (October 1 and 8, mid November, and December 3) and each course deadline, the team adds one extra working session, scheduled by the coordinator.
+  \item \textbf{Conflicts:} members post known conflicts (exams, travel, work deadlines) in the group chat at least one week ahead so tasks can be rebalanced.
+\end{itemize}
+
+\textbf{Meetings.}
+\begin{itemize}
+  \item In person on Tuesday and Thursday, 11:00\,am to 12:00\,pm. At least one meeting is held every week; the second is held as needed. Since we share the preceding class, we gather within 10 minutes after it ends.
+  \item The coordinator confirms by Monday or Wednesday evening whether the next meeting is on and posts a short agenda.
+  \item Members who cannot attend in person join via Zoom. Absences are announced before the meeting whenever possible.
+  \item Decisions and action items are recorded as notes in the repository and as cards on the kanban board.
+\end{itemize}
+
+\textbf{Communication.}
+\begin{itemize}
+  \item Day to day coordination happens in the team group chat; task status lives on the GitHub kanban board.
+  \item Members respond to group messages within 24 hours on weekdays, and sooner in the 48 hours before a deadline.
+  \item All client communication goes through Joshua, with the team copied. Client emails are acknowledged within one business day.
+  \item Between scheduled client meetings, Joshua sends the client a brief written status update every two weeks covering progress, next steps, and open questions.
+  \item No project or client details are shared outside the team, client, TA, and instructor without client permission.
+\end{itemize}
+
+\textbf{Decision making.}
+\begin{itemize}
+  \item We discuss first and aim for consensus. If none emerges, we vote. A vote requires at least three members present and passes with a majority of those present.
+  \item In a tie, the coordinator casts the deciding vote after hearing each side.
+  \item Day to day technical choices are made by the build team; scope changes and anything client facing are decided by the whole team.
+\end{itemize}
+
+\section{Expectations: Doing Your Share}
+
+\begin{itemize}
+  \item \textbf{Attendance and engagement.} Attend meetings in person or on Zoom and respond in real time during them. A member who misses a meeting without notice takes remaining tasks after others have chosen their scope of work. Two missed meetings or two missed internal deadlines without notice move the issue directly to Step 3 of conflict resolution and will be reflected honestly in peer evaluations.
+  \item \textbf{Deadlines.} Internal deadlines are set 48 hours before each course due date so drafts can be reviewed. The coordinator posts reminders and the kanban board carries due dates.
+  \item \textbf{Accountability.} Each task on the kanban board has a named owner. Owners keep their cards current and raise blockers early rather than at the deadline.
+  \item \textbf{Quality.} Code is pushed to the shared repository with clear commits; written work is reviewed by at least one other member before submission.
+  \item \textbf{Client meetings.} All members attend the three required client meetings (requirements, progress update, final presentation) unless excused in advance.
+  \item \textbf{Confidentiality.} Members honor any NDA the client requests and send drafts to the client for approval before any public post about the project. The project repository stays private, or the client is anonymized in any public material, unless the client approves otherwise.
+  \item \textbf{Client data.} We process Toolkit content with Claude only after the client consents, and test on public pages and simulated activities until then. Credentials (such as website passwords) never go into the repository, are kept in access restricted storage, and are deleted or returned at project end.
+\end{itemize}
+
+\section{Conflict Resolution}
+
+If a member is not meeting expectations, or members disagree, we follow these steps in order:
+\begin{enumerate}
+  \item \textbf{Direct conversation.} Raise the concern with the member privately and respectfully within 48 hours.
+  \item \textbf{Coordinator check in.} Nibedita meets with the member to understand the cause and agree on a fix, such as reassigning tasks to fit strengths, addressing concerns, adjusting workload, or rescheduling the to do list. If the concern involves the coordinator, another member leads this step.
+  \item \textbf{Team discussion.} If there is no improvement within one week, the team discusses the issue together at the next meeting and records the agreed plan.
+  \item \textbf{Escalation.} If the plan fails, any member may contact the TA, Chris Queis, copying the professor, and lets the team know they have done so. Issues involving harassment, academic integrity, or a serious risk to the project may be escalated immediately, skipping earlier steps.
+\end{enumerate}
+
+\section{Team Goals}
+
+\begin{itemize}
+  \item Migrate all 46 Toolkit activities and their PDFs to the IF Website as drafts, with activity wording unchanged and no broken links.
+  \item Give IF staff without technical skills a workflow that creates a ready to review activity draft in 15 minutes or less, plus training and a handover package (code, guides, known limitations).
+  \item Show measurable quality on the success measures in our scope statement, and a clear reduction in problems let through with guardrails versus without.
+  \item Meet every course technical requirement: an agentic workflow, a pretrained model, at least five custom agentic tools with docstrings written for LLM agents, a skill folder, evaluation methods, protection of client data and quality controlled simulated data, and safety guardrails with a comparison with and without guardrails.
+  \item Hold productive client meetings on October 1 and 8, in mid November, and on December 3, and leave the client with something they can use or build on.
+  \item Be proud of our work, grow our agentic AI skills, and keep a team where everyone contributes and is heard.
+\end{itemize}
+
+\needspace{14\baselineskip}
+\section{Signatures}
+
+By signing below, each member confirms they have discussed and agreed to this contract. The October 2026 revision (project topic and roles) was reviewed and agreed by all members on \underline{\hspace{3cm}}.
+
+\vspace{4pt}
+\renewcommand{\arraystretch}{1.8}
+\begin{tabularx}{\textwidth}{@{}p{4.5cm}Lp{3cm}@{}}
+\toprule
+\textbf{Name} & \textbf{Signature} & \textbf{Date} \\
+\midrule
+Joshua Kalakoti & \textit{Joshua Kalakoti} & 9/24/2026 \\
+Letu Wang & \textit{Letu Wang} & 9/24/2026 \\
+Like Cui & \textit{Like Cui} & 9/24/2026 \\
+Nibedita Biswal & \textit{Nibedita Biswal} & 9/24/2026 \\
+Yinfeng Liu & \textit{Yinfeng Liu} & 9/24/2026 \\
+\bottomrule
+\end{tabularx}
+
+\end{document}

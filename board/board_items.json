@@ -1,0 +1,250 @@
+[
+ {
+  "title": "Team contract: revise for Toolkit Migration and collect re-confirmation",
+  "status": "Review",
+  "owner": "Like",
+  "due": "2026-10-06",
+  "area": "Docs",
+  "body": "Contract revised for the confirmed project and roles. All five members confirm the October revision; fill in the agreement date on the signature page before submission."
+ },
+ {
+  "title": "Client meeting prep document (Oct 8)",
+  "status": "Done",
+  "owner": "Like",
+  "due": "2026-10-06",
+  "area": "Docs",
+  "body": "One page: client, problem as understood, questions on actionable problem, context, data and NDA, success by December, progress update timing, final presentation logistics."
+ },
+ {
+  "title": "Project scope Version 1 sent to IF",
+  "status": "Done",
+  "owner": "Like (document), Joshua (email)",
+  "due": "2026-10-06",
+  "area": "Docs",
+  "body": "PMI style scope statement, sent to IF on Oct 6 with the Oct 8 meeting invitation (docs/scope.tex). Confirm with Joshua whether IF approved Version 1; Version 2 supersedes it."
+ },
+ {
+  "title": "Set up GitHub repository and project board",
+  "status": "Done",
+  "owner": "Nibedita",
+  "due": "2026-11-01",
+  "area": "Build",
+  "body": "Private repository and this board, created by scripts/publish.sh."
+ },
+ {
+  "title": "Client meeting Oct 8: access, Claude consent, scope, success measures",
+  "status": "Review",
+  "owner": "Whole team",
+  "due": "2026-10-08",
+  "area": "Client",
+  "body": "Confirm with Joshua: meeting held, decisions recorded. Was: access, Claude consent, scope, success measures."
+ },
+ {
+  "title": "Send meeting notes and follow up email to IF",
+  "status": "Review",
+  "owner": "Joshua",
+  "due": "2026-10-09",
+  "area": "Client",
+  "body": "Confirm with Joshua that the Oct 8 notes went to IF."
+ },
+ {
+  "title": "Scope Version 2 with Oct 8 decisions",
+  "status": "Review",
+  "owner": "Like",
+  "due": "2026-10-12",
+  "area": "Docs",
+  "body": "Confirm with Like whether Version 2 went to IF, and with what decisions."
+ },
+ {
+  "title": "Collect decisions due Oct 16 (freeze date, old web address, owner after December, NDA)",
+  "status": "Review",
+  "owner": "Joshua",
+  "due": "2026-10-16",
+  "area": "Client",
+  "body": "Confirm with Joshua which decisions IF has made (freeze date, old web address, owner after December, NDA)."
+ },
+ {
+  "title": "Local WordPress practice site",
+  "status": "Review",
+  "owner": "Nibedita",
+  "due": "2026-10-16",
+  "area": "Build",
+  "body": "Local WordPress with SQLite used for the integration tests (eval/results/wordpress_integration.txt); Docker setup in wordpress/."
+ },
+ {
+  "title": "Toolkit inventory: crawl_toolkit and fetch_page tools",
+  "status": "Review",
+  "owner": "Letu",
+  "due": "2026-10-23",
+  "area": "Build",
+  "body": "Built in src/cdp_migration/tools/inventory.py. Reads the five module pages and each page's embedded Wix record. Team to review; live run pending."
+ },
+ {
+  "title": "Activity schema and validate_activity tool",
+  "status": "Review",
+  "owner": "Yinfeng",
+  "due": "2026-10-23",
+  "area": "Build",
+  "body": "Built: src/cdp_migration/schema.py and tools/extract.py; JSON schema in the skill folder. Team to review."
+ },
+ {
+  "title": "Activity layout proposal to IF (post type, fields, template)",
+  "status": "Review",
+  "owner": "Letu",
+  "due": "2026-10-23",
+  "area": "Build",
+  "body": "Plugin built: wordpress/cdp-activity/ (post type, filters, Activity details box, draft only role, embed host list, uninstall). Needs IF website manager approval and a Breakdance template."
+ },
+ {
+  "title": "Test data and evaluation set",
+  "status": "Review",
+  "owner": "Yinfeng",
+  "due": "2026-10-23",
+  "area": "Eval",
+  "body": "Synthetic Toolkit checked against the live structure (eval/live_structure_2026-11-01.json) and planted problem cases. Live comparison via cdp evaluate --live."
+ },
+ {
+  "title": "Run the migration on the live Toolkit (cdp evaluate --live)",
+  "status": "Backlog",
+  "owner": "Letu, Nibedita, Yinfeng",
+  "due": "2026-11-13",
+  "area": "Eval",
+  "body": "Needs IF consent first if Claude is used (cdp migrate itself uses no AI). On a computer that can reach collaborativediscussionproject.com: pip install -e . then cdp evaluate --live."
+ },
+ {
+  "title": "Install the plugin on IF staging and create the drafter account",
+  "status": "To Do",
+  "owner": "Nibedita",
+  "due": "2026-11-13",
+  "area": "Build",
+  "body": "Needs IF website manager approval. Steps in wordpress/README.md."
+ },
+ {
+  "title": "Send the Claude consent request to IF",
+  "status": "To Do",
+  "owner": "Joshua (email), Like (document)",
+  "due": "2026-11-06",
+  "area": "Client",
+  "body": "docs/consent_request.pdf. Attach Anthropic's current API data policy summary."
+ },
+ {
+  "title": "extract_activity and check_fidelity tools",
+  "status": "Review",
+  "owner": "Nibedita",
+  "due": "2026-11-06",
+  "area": "Build",
+  "body": "Built and tested: deterministic mapping from the Wix record; count aware verbatim check with word level diffs."
+ },
+ {
+  "title": "scan_pii and check_links tools",
+  "status": "Review",
+  "owner": "Yinfeng",
+  "due": "2026-11-06",
+  "area": "Build",
+  "body": "Built and tested: emails, phones, commenter names, instruction like text; link checks and Redirection CSV."
+ },
+ {
+  "title": "rehost_asset tool",
+  "status": "Review",
+  "owner": "Letu",
+  "due": "2026-11-06",
+  "area": "Build",
+  "body": "Built and tested, including against a local WordPress 6.5 site."
+ },
+ {
+  "title": "create_draft tool with draft only WordPress role",
+  "status": "Review",
+  "owner": "Nibedita",
+  "due": "2026-11-06",
+  "area": "Build",
+  "body": "Built; WordPress refused a publish attempt by the drafter account in the integration test."
+ },
+ {
+  "title": "Orchestrator, extraction, and reviewer agents",
+  "status": "Review",
+  "owner": "Nibedita",
+  "due": "2026-11-06",
+  "area": "Build",
+  "body": "Built: own tool-use loop on the Claude Messages API, one session per activity, limits enforced. Tested with scripted model turns; first real run needs an API key."
+ },
+ {
+  "title": "Pilot: 5 activities migrated to the practice site",
+  "status": "Backlog",
+  "owner": "Letu, Nibedita, Yinfeng",
+  "due": "2026-11-06",
+  "area": "Build",
+  "body": "End to end run on about 5 activities across modules; first evaluation numbers."
+ },
+ {
+  "title": "Progress update meeting with IF (mid November, date to confirm)",
+  "status": "Backlog",
+  "owner": "Whole team",
+  "due": "2026-11-13",
+  "area": "Client",
+  "body": "Pilot results, first evaluation, Claude cost estimate. Like prepares the progress document."
+ },
+ {
+  "title": "All 46 activities on the practice site",
+  "status": "Backlog",
+  "owner": "Letu, Nibedita, Yinfeng",
+  "due": "2026-11-18",
+  "area": "Build",
+  "body": "Full migration run; every page passes checks or is routed to human review."
+ },
+ {
+  "title": "Guardrails with versus without evaluation",
+  "status": "In Progress",
+  "owner": "Yinfeng",
+  "due": "2026-11-18",
+  "area": "Eval",
+  "body": "Offline ablation done (eval/results/offline_eval.md). Agent arms need ANTHROPIC_API_KEY: cdp agent-eval and cdp extraction-eval."
+ },
+ {
+  "title": "Skill folder: SKILL.md, templates, examples, review checklist",
+  "status": "Review",
+  "owner": "Nibedita",
+  "due": "2026-11-18",
+  "area": "Build",
+  "body": "Built: skills/toolkit-activity-publisher/. Team to review wording with IF."
+ },
+ {
+  "title": "IF staff usability test of the update workflow",
+  "status": "Backlog",
+  "owner": "Letu, Nibedita, Yinfeng",
+  "due": "2026-11-18",
+  "area": "Eval",
+  "body": "Staff member creates a ready to review activity draft; target 15 minutes or less."
+ },
+ {
+  "title": "Publicity write up draft sent to IF for approval",
+  "status": "Backlog",
+  "owner": "Like",
+  "due": "2026-11-20",
+  "area": "Docs",
+  "body": "Short article for IF's newsletter and social media; Joshua emails it to IF."
+ },
+ {
+  "title": "Final evaluation report, link list, staff guides",
+  "status": "Backlog",
+  "owner": "Yinfeng (evaluation), Like (guides)",
+  "due": "2026-11-25",
+  "area": "Docs",
+  "body": "Evaluation results, redirect list, one page maintenance guide, staff how to guide, known limitations."
+ },
+ {
+  "title": "Final presentation, training, and handover (Dec 3)",
+  "status": "Backlog",
+  "owner": "Whole team",
+  "due": "2026-12-03",
+  "area": "Client",
+  "body": "Presentation, live training, transfer of code and accounts to IF."
+ },
+ {
+  "title": "Client status email every two weeks",
+  "status": "To Do",
+  "owner": "Joshua",
+  "due": "2026-11-06",
+  "area": "Client",
+  "body": "Recurring: progress, next steps, open questions. Confirm with Joshua that the Oct 23 email went out. Next dates: Nov 6, Nov 20."
+ }
+]

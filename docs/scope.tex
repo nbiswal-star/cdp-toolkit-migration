@@ -1,0 +1,117 @@
+\input{preamble}
+\lhead{\small Project Scope: CDP Toolkit Migration}
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Project Scope Statement}\\[3pt]
+{\large Collaborative Discussion Toolkit Migration: Wix to the IF Website}\\[2pt]
+{\small Group 19, Intro to AI, Fall 2026, CMU Heinz College \textbullet{} Version 1 for client review}
+\end{center}
+
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}P{3.4cm}L@{}}
+Client & Interactivity Foundation (IF), Collaborative Discussion Project (CDP). Sponsor: Jes Friedrichs. Technical requirements: Rachael. Also at the October 1 meeting: Jasmine, Ellen. Jes to follow up with Shannon on the Website decision. Names to be confirmed with IF; shared only with IF and course staff. \\
+Student team & Joshua Kalakoti (client communication), Like Cui (documentation), Nibedita Biswal (technical build, team coordinator), Letu Wang and Yinfeng Liu (technical build) \\
+Project board & \url{https://github.com/users/nbiswal-star/projects/5} (GitHub Projects kanban: Backlog, To Do, In Progress, Review, Done; code repository kept private) \\
+Review status & Sent to IF for review on October 6, 2026, with the October 8 meeting invitation. Not yet approved. Changes agreed on October 8 go into Version 2 by Monday, October 12. \\
+\end{tabularx}
+
+\section{Background}
+\begin{sloppypar}
+IF's Collaborative Discussion Toolkit is an open access set of 46 activities in five modules (Introduction, Creative, Critical, Culturally Responsive, and Civic Collaboration). It lives on a Wix site at \mbox{collaborativediscussionproject.com}, separate from the IF Website at interactivityfoundation.org. Running two platforms costs money and splits IF's content; IF also wants its intellectual property fully accessible on its main site. On October 1, IF decided to move the Toolkit to the IF Website rather than IF Academy. IF is revising activities now, so future updates must be easy to post.
+\end{sloppypar}
+
+IF's overall goal, stated on October 1, is to ``build an agentic workflow for us, using many agents to assist us with automating our current workflow.'' This project covers the Toolkit workflow only; ideas for automating other IF workflows will be listed as recommendations at handover.
+
+\section{Objective}
+By December 3, 2026, deliver an agentic workflow (a Claude orchestrator agent using custom tools built by the team, with helper agents for new documents and review) that (a) copies all Toolkit activities and their files from Wix to the IF Website accurately, as drafts for IF to approve, and (b) lets IF staff without technical skills turn a new or revised activity into a ready to review page quickly.
+
+\textbf{What IF will have on December 3.} Every activity sits as a draft (or approved page) on the IF Website in one consistent layout, with its PDF attached and old Toolkit links mapped to the new pages. To add a new activity, a staff member pastes the activity document into Claude, which returns it formatted and checked; the staff member pastes it into an activity form on the IF Website, reviews it, and clicks publish. If IF provides a limited WordPress account (can create drafts, cannot publish), Claude can also create the draft directly. A recorded walkthrough, a one page guide, and a live training session show how.
+
+\section{Scope}
+\subsection*{In scope}
+\begin{itemize}
+  \item \textbf{Inventory}: a list of all 46 activities, their PDFs, and other files and links on the Wix site.
+  \item \textbf{Activity layout}: a standard layout for every activity (for example overview, learning goals, duration, level, format, audience, set up, steps, reflection and practice journals, PDF), proposed by the team and approved by IF. IF decides the fields, labels, and categories.
+  \item \textbf{WordPress activity form}: an activity page type with fields matching the approved layout, built on the practice site first. Any new form or page type on the IF Website is set up with IF's website manager and approved by IF.
+  \item \textbf{Agentic migration}: a Claude orchestrator agent runs the team's custom tools: fixed code copies each activity from its Wix record into the layout, checks it against the original, and creates a draft on the IF Website (or a private practice copy of it) for staff review.
+  \item \textbf{Update workflow}: a saved set of instructions and a template that Claude follows when IF adds or revises an activity.
+  \item \textbf{Quality and safety checks}: nothing goes live without a person approving it; activity wording is never changed by the AI, and any difference from the original blocks the page and is shown to IF.
+  \item \textbf{Old link forwarding}: a complete list of old Toolkit links and their new addresses. The team sets the forwarding up with IF staff, or gives click by click steps if access is limited.
+  \item \textbf{Handover}: code and accounts transferred to IF, setup and maintenance guides, training, known limitations, and a short write up for IF's website and social channels, sent to IF for approval.
+\end{itemize}
+
+\subsection*{Out of scope}
+\begin{itemize}
+  \item Writing or revising activity content (IF owns content); redesigning the IF Website beyond an activity page layout.
+  \item Ending the Wix plan or changing domain settings (IF decides and acts; the team provides steps).
+  \item Ongoing support after December 3, 2026. Handover includes a named IF owner and a one page maintenance guide.
+  \item Other IF projects, including the assessment project assigned to Group 2, unless IF and course staff agree in writing.
+\end{itemize}
+
+\section{Deliverables and Milestones}
+Dates other than October 6, October 8, mid November, and December 3 are team proposals for IF to confirm on October 8.
+
+\rowcolors{2}{rowgray}{white}
+\begin{tabularx}{\textwidth}{@{}P{2.4cm}LP{2.8cm}@{}}
+\toprule
+\textbf{Date} & \textbf{Milestone or deliverable} & \textbf{Owner} \\
+\midrule
+Oct 6 & Scope Version 1 (sent by Joshua) and project board & Like, Nibedita \\
+Oct 8 & Meeting: confirm requirements, access, success measures; Version 2 by Oct 12 & Whole team \\
+Oct 23 & Inventory complete; activity layout proposed to IF & Build team \\
+Nov 6 & Pilot: about 5 activities migrated to the practice site & Build team \\
+Mid November & Progress update with IF; pilot review; Claude cost estimate & Whole team \\
+Nov 18 & All activities in the practice site; IF staff try the update workflow & Build team, IF \\
+Nov 20 & Write up draft sent to IF for approval & Like \\
+Dec 3 & Final presentation, training, handover package & Whole team \\
+\bottomrule
+\end{tabularx}
+\rowcolors{1}{}{}
+
+\needspace{12\baselineskip}
+\section{Success Measures (proposed for IF to confirm)}
+\begin{enumerate}
+  \item \textbf{Complete}: all 46 activities and their PDFs exist on the IF Website or practice site.
+  \item \textbf{Faithful}: activity wording (overview, goals, steps, journals) matches the original exactly apart from spacing and character encoding cleanup, and times match exactly; any difference blocks the page and is shown to IF before approval. Categories are at least 95\% correct.
+  \item \textbf{No broken links}: zero broken links or missing files on migrated pages; a complete old to new link list.
+  \item \textbf{Easy to update}: an IF staff member creates a ready to review activity draft in 15 minutes or less without student help.
+  \item \textbf{Safe}: nothing goes live without IF approval; we show IF the safety checks working on test pages.
+  \item \textbf{Accepted}: IF reviews the pilot in mid November and the full set at handover.
+\end{enumerate}
+
+\section{Open Items from October 1}
+What technology IF uses for Toolkit updates today; whether an NDA is needed; what data IF will share; IF Website access level; activity freeze date; whether ratings and comments, coach only (login) resources, and certificate templates move too. Each is resolved on or after October 8 and recorded in Version 2.
+
+\section{Constraints}
+\begin{itemize}
+  \item Fixed end date: final presentation December 3, 2026 (Thanksgiving week falls just before).
+  \item The project must meet the course's technical requirements (agentic workflow, pretrained model, custom agent tools, skill folder, evaluation, data protection, safety guardrails).
+  \item Old link forwarding works only if IF keeps the collaborativediscussionproject.com address and connects it to the current website (the hosting provider adds it with a security certificate). If Wix registered the address, it may first need to be transferred out of Wix.
+\end{itemize}
+
+\section{Assumptions}
+\begin{itemize}
+  \item The Toolkit can likely be downloaded from Wix, and the IF Website already has a tool for forwarding old links. Technically: the public sites show the IF Website runs WordPress with the Redirection plugin, and the Toolkit is a Wix collection that the site owner can export as a spreadsheet. We need permission to view the Wix site's editor for the export; otherwise we read the public pages.
+  \item IF agrees that Toolkit content may be processed by Claude (Anthropic) for this project. Until confirmed, we work only on the public pages and practice data.
+  \item During the project the team uses its own Claude access. Afterwards, the update workflow needs an IF Claude account; we expect this to be a standard Claude subscription for each staff user and will confirm the monthly cost by mid November. A no AI fallback (form plus checklist) is included.
+  \item IF staff time, estimated at about 15 hours in total: October 8 meeting (1), pilot review (2), reviewing all 46 drafts in batches (about 8), trying the update workflow (2), training and handover (2). Turnaround times are agreed on October 8.
+\end{itemize}
+
+\section{Risks and Responses}
+\rowcolors{2}{rowgray}{white}
+\begin{tabularx}{\textwidth}{@{}LL@{}}
+\toprule
+\textbf{Risk} & \textbf{Response} \\
+\midrule
+No editor access to the IF Website & Build on a private practice copy; deliver an upload file and do the upload with IF on a call \\
+AI alters activity content & Word by word comparison with the original; every page approved by a person \\
+Activities change during migration & Agreed freeze date; later edits go through the update workflow \\
+Files on Wix disappear when the plan ends & All PDFs and images moved to the IF Website before Wix is cancelled \\
+\bottomrule
+\end{tabularx}
+\rowcolors{1}{}{}
+
+\section{Communication}
+Joshua is the single point of contact, and the whole team is copied on client email. Client emails are answered within one business day. IF receives a short written update every two weeks between the October 8, mid November, and December 3 meetings.
+
+\end{document}

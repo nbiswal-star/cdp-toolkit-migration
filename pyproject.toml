@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cdp-migration"
+version = "0.1.0"
+description = "Agentic migration of the Collaborative Discussion Toolkit from Wix to the IF WordPress website"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["requests>=2.31"]
+
+[project.optional-dependencies]
+agent = ["anthropic>=0.40"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+cdp = "cdp_migration.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "."]

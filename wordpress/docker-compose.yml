@@ -1,0 +1,39 @@
+# Local practice copy of a WordPress site with the CDP plugin. Not for production.
+services:
+  db:
+    image: mariadb:11
+    environment:
+      MARIADB_DATABASE: wordpress
+      MARIADB_USER: wordpress
+      MARIADB_PASSWORD: wordpress
+      MARIADB_RANDOM_ROOT_PASSWORD: "1"
+    volumes: [db:/var/lib/mysql]
+  wordpress:
+    image: wordpress:6-php8.2-apache
+    depends_on: [db]
+    ports: ["8899:80"]
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_CONFIG_EXTRA: "define('WP_ENVIRONMENT_TYPE', 'local');"
+    volumes:
+      - wp:/var/www/html
+      - ./cdp-activity:/var/www/html/wp-content/plugins/cdp-activity:ro
+  cli:
+    image: wordpress:cli-php8.2
+    depends_on: [wordpress]
+    user: "33:33"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - wp:/var/www/html
+      - ./cdp-activity:/var/www/html/wp-content/plugins/cdp-activity:ro
+    profiles: [tools]
+volumes:
+  db:
+  wp:

@@ -1,0 +1,148 @@
+\input{preamble}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily\footnotesize,columns=fullflexible,frame=single,breaklines=true,backgroundcolor=\color{rowgray},framerule=0pt}
+\lhead{\small Technical Plan: CDP Toolkit Migration}
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Technical Plan}\\[3pt]
+{\large Agentic Migration of the CDP Toolkit from Wix to WordPress}\\[2pt]
+{\small Group 19, Intro to AI, Fall 2026 \textbullet{} Version 3, November 2026, as built \textbullet{} Internal working document}
+\end{center}
+
+\section{What We Know (from the public sites, October 4 and November 1)}
+\begin{itemize}
+  \item \textbf{Embedded records}: every activity page embeds its own Wix CMS record (collection \texttt{Items1}) in its warmup data script block: structured fields, rich text as Ricos JSON, time, module, icons, and PDF links. All 46 pages were checked on November 1 and share one shape. Migration maps these fields directly, so no scraping of rendered text and no CMS export is needed.
+  \item \textbf{Source}: collaborativediscussionproject.com is a Wix site. Activities are a Wix CMS collection shown on dynamic pages (\texttt{/items-1/<slug>}): 46 activities across five modules (10, 9, 10, 9, 8). Each activity has overview, learning goals, duration, module, level, format, audience, set up, timed steps, reflection journal, practice journal, a PDF (\texttt{/\_files/ugd/...pdf}), plus Wix ratings and comments. A login area holds coach only resources.
+  \item \textbf{Target}: interactivityfoundation.org is self hosted WordPress (REST API at \texttt{/wp-json/wp/v2}) with the Breakdance page builder, FacetWP (filtering), and the Redirection plugin already installed.
+  \item \textbf{Implication}: one live adapter (WordPress REST API, drafts) plus a file export fallback (a WordPress import file plus one JSON and HTML file per activity). Old links can be forwarded by the existing Redirection plugin (rules imported by CSV, matched on the old domain, ignore case and trailing slash on) once IF keeps collaborativediscussionproject.com, adds it to the Liquid Web host with SSL, and points its DNS there; if Wix registered the domain, a transfer may be needed first.
+  \item \textbf{Required site changes (IF approval needed)}: an \texttt{activity} custom post type with fields exposed to the REST API (for example ACF with Show in REST on); module, level, and format as taxonomies for FacetWP; one Breakdance single template that displays the fields dynamically. We never write to Breakdance's internal endpoints. Owner: Letu. Built and tested first on the local copy; we check \texttt{/wp-json/wp/v2/types} for an existing suitable type.
+  \item \textbf{Status}: these facts were read from public pages on October 4 and are verified with IF on October 8.
+\end{itemize}
+
+\section{Architecture}
+\begin{center}
+\small
+\begin{tabular}{ccccccc}
+\fbox{\parbox{2.1cm}{\centering Wix Toolkit\\(record in\\each page)}} & $\rightarrow$ &
+\fbox{\parbox{2.5cm}{\centering Orchestrator agent\\(Claude) calling\\our tools}} & $\rightarrow$ &
+\fbox{\parbox{2.1cm}{\centering Deterministic\\checks and\\guardrails}} & $\rightarrow$ &
+\fbox{\parbox{2.3cm}{\centering WordPress\\drafts or\\import file}} \\[2pt]
+ & & & & $\downarrow$ & & $\uparrow$ \\[2pt]
+ & & & & \fbox{\parbox{2.1cm}{\centering Human review\\queue}} & $\rightarrow$ & \fbox{\parbox{2.3cm}{\centering IF approves\\and publishes}} \\
+\end{tabular}
+\end{center}
+\begin{itemize}
+  \item \textbf{Agents}: an orchestrator agent (Claude, our own tool use loop on the Messages API) runs the tools for one activity at a time and routes failures to human review. In migration, activity text is mapped by fixed code; the orchestrator sees only short tool summaries, plus flag snippets from \texttt{scan\_pii}. A separate extraction agent with no tools is used only for new or revised documents (update workflow). A reviewer agent with no tools explains flagged items to staff. Agents act only through our tools.
+  \item \textbf{Record first}: verbatim fields are mapped from each page's embedded Wix record by fixed code, so migration copies every word without AI. Claude does the work that needs judgment: running and routing the workflow (orchestrator), turning free form documents into activities (extraction agent, update workflow), and explaining flagged items to staff (reviewer agent). Ratings and comments are never copied.
+  \item \textbf{Validation, fidelity checks, and draft creation are deterministic code.} The orchestrator decides the order of work, handles errors and retries within limits, and decides what goes to human review; the extraction agent turns free form documents into activities.
+  \item \textbf{Idempotent runs}: a \texttt{state.json} keyed by \texttt{activity\_id} (slug of the Wix URL) stores source hash, record hash, QA status, WordPress post ID, and media keyed by SHA-256. Re-runs update the same draft and never duplicate media.
+  \item \textbf{Source of truth}: after migration, the IF Website is the source of truth; repository JSON is a migration record only.
+\end{itemize}
+
+\section{Custom Agent Tools}
+Each tool's docstring is passed to the SDK as the tool description, so it is what the model actually reads. Docstrings state purpose, preconditions, allowed values, ordering, and failure modes; the same rules are enforced in code (state flags, retry counters), not by the docstring alone.
+
+\rowcolors{2}{rowgray}{white}
+\begin{tabularx}{\textwidth}{@{}P{3.5cm}LP{1.8cm}@{}}
+\toprule
+\textbf{Tool} & \textbf{What it does and the rule it enforces} & \textbf{Owner} \\
+\midrule
+\texttt{crawl\_toolkit} & Builds the inventory from the five module pages; allowlisted domain only; one request per second; never logs in to the Wix member area & Letu \\
+\texttt{fetch\_page} & Reads the record embedded in one activity page; keeps commenter names only as a private deny list for \texttt{scan\_pii}; cached & Letu \\
+\texttt{extract\_activity} & Fixed mapping from the Wix record (no AI). For new documents, run only from \texttt{cdp new-activity}, the extraction agent fills the schema and \texttt{check\_fidelity} verifies it & Nibedita \\
+\texttt{validate\_activity} & Required fields, types, allowed values (module, level, format); no LLM & Yinfeng \\
+\texttt{check\_fidelity} & Verbatim fields match the source; numbers exact; source coverage check; flags added or dropped text & Nibedita \\
+\texttt{scan\_pii} & Flags emails, phone numbers, names of people who commented on the page, and text aimed at AI systems, for a person to decide & Yinfeng \\
+\texttt{rehost\_asset} & Downloads the original file (strips Wix resize parameters), hashes it, uploads once to the WordPress media library, attached to the activity post & Letu \\
+\texttt{create\_draft} & Takes only \texttt{activity\_id}; refuses unless the record passed every check (or a person approved it) and is unchanged since (hash check); writes the rendered HTML body and structured fields through the REST API; never publishes & Nibedita \\
+\texttt{check\_links} & Verifies every link and file on a draft; writes the old to new link list for the Redirection plugin & Yinfeng \\
+\bottomrule
+\end{tabularx}
+\rowcolors{1}{}{}
+
+\begin{lstlisting}
+def create_draft(activity_id: str) -> dict:
+    """Create or update the single WordPress DRAFT for one activity.
+    Preconditions: validate_activity and check_fidelity have both passed
+    for this activity_id and its record is unchanged since (hash check).
+    Status is always "draft"; there is no way to publish with this tool.
+    Returns {"draft_url": str, "post_id": int} or {"error": str}.
+    On "error": do not retry more than twice; send to human review."""
+\end{lstlisting}
+
+\section{Skill Folder (course skill.md)}
+\begin{lstlisting}
+skills/toolkit-activity-publisher/
+  SKILL.md                    # steps: document -> activity layout -> checks
+  templates/activity.md       # fill in template matching the WordPress fields
+  schema/activity.schema.json
+  examples/                   # 3 worked examples (short, long, file heavy)
+  checklists/review.md        # what a person checks before publishing
+\end{lstlisting}
+\textbf{Handover in two tiers.} Tier A (guaranteed, no code, no site credentials): staff paste an activity document into Claude with this skill, get the formatted fields and a review checklist, and paste them into a WordPress activity form (custom post type with fields), then publish. Tier B (optional): Claude creates the WordPress draft directly through the same tools. It uses an Application Password for a dedicated WordPress user with a custom role that can create and edit activity drafts and upload media but has no publish capability, so WordPress itself blocks publishing. We confirm Application Passwords are enabled (HTTPS, no security plugin blocking them). A form plus checklist works even without Claude. Both need an IF owner; Tier A needs a Claude Pro or Team seat.
+
+\section{Pretrained Models}
+Claude (configurable model, default \texttt{claude-sonnet-4-5}) powers three agents: the orchestrator, the extraction agent for new documents, and the reviewer agent. The planned sentence embedding model was dropped: exact, count aware text checks catch every planted change in testing, and meaning level similarity would hide one word changes such as an added ``not''. No models are trained from scratch.
+
+\section{Safety Guardrails}
+\begin{itemize}
+  \item \textbf{Field classes}: verbatim fields (overview, goals, set up, steps, journals) must equal the source exactly after whitespace and Unicode normalization; any difference blocks the record and shows a word level diff to the reviewer (character similarity only ranks diffs). Times must match exactly. No source sentence may be missing; sentences are counted, so losing one of two identical prompts is caught. Navigation, ratings, and comments are never part of the source.
+  \item \textbf{Approval gate}: \texttt{create\_draft} cannot publish, and the WordPress role behind it has no publish capability; a person publishes in WordPress.
+  \item \textbf{Instruction isolation}: extraction has no tools; text that looks like instructions to the AI is kept verbatim and flagged for review, never acted on.
+  \item \textbf{Limits}: domain allowlist, tool call and token caps, at most two retries per tool, credentials in environment variables only.
+\end{itemize}
+\textbf{With versus without.} Each code guardrail is a switchable layer (fidelity gate, approval and hash gate, PII and instruction gate, draft only). Offline, nine planted problems run through each configuration (results in the repository, \texttt{eval/results/offline\_eval.md}). For the model itself, \texttt{cdp agent-eval} runs the Claude orchestrator on small synthetic sites (6 activities, 2 planted problems, 3 seeds) in three arms: all guardrails on; code gates off with the safety prompt kept; and code gates off with a plain prompt. Arms without gates also get a publish tool, as a naive design would. It reports planted problems drafted or published, false blocks, whether the agent's report names the flagged activities, and tokens. The unguarded arms run only against an in memory test target.
+
+\section{Evaluation}
+\begin{itemize}
+  \item \textbf{Test data}: a synthetic Toolkit of 46 activities with the live site's exact structure and invented wording (offline, repeatable); on the real site, each migrated activity is compared with its own page record (\texttt{cdp evaluate --live}).
+  \item \textbf{Fidelity}: share of activities passing \texttt{check\_fidelity} (word level diffs for failures); 27 planted or mutated changes that must all be caught; for the extraction agent, pass rate, lines changed or dropped, and step count correct (\texttt{cdp extraction-eval}).
+  \item \textbf{Completeness and integrity}: 46 of 46 activities and PDFs migrated; zero broken links.
+  \item \textbf{Efficiency}: minutes and LLM cost per activity, compared with IF's current time per activity (asked on October 8).
+  \item \textbf{Usability}: an IF staff member creates a new activity draft with Tier A; time (target 15 minutes or less) and feedback.
+  \item \textbf{Guardrails}: Section 6 results.
+\end{itemize}
+
+\section{Data Protection and Simulated Data}
+The Toolkit is open access, but it is IF's intellectual property: the repository stays private, code and accounts transfer to IF at handover, and nothing is posted publicly without IF approval. We process content with Claude only after IF consents. Until we have access, we test against a local WordPress copy (PHP with SQLite, or Docker), which is also the simulated target: IF's plugin licenses if shared (Breakdance and FacetWP are paid), otherwise core WordPress plus Redirection, with layout checked on IF's staging site, if one exists. FacetWP does not index drafts, so we re-run its index after IF publishes. Synthetic activities are checked by \texttt{tests/test\_synthetic\_quality.py} against the live structure profile (module sizes, step counts, times, tags, rich text node types), and their wording comes from a fixed phrase bank, so no IF text is copied.
+
+\section{Course Requirement Coverage}
+\rowcolors{2}{rowgray}{white}
+\begin{tabularx}{\textwidth}{@{}P{5.6cm}L@{}}
+\toprule
+\textbf{Requirement} & \textbf{Where it is met} \\
+\midrule
+Agentic workflow & Orchestrator, extraction, and reviewer agents with tools; update workflow for IF (Sections 2, 4) \\
+Pretrained model & Claude in three agents (Section 5) \\
+Five or more custom tools with docstrings & Nine tools (Section 3) \\
+Skill folder & \texttt{toolkit-activity-publisher} (Section 4) \\
+Evaluation methods & Section 7 \\
+Data protection or simulated data & Section 8 \\
+Guardrails with versus without & Section 6 \\
+\bottomrule
+\end{tabularx}
+\rowcolors{1}{}{}
+
+\section{Build Plan}
+\rowcolors{2}{rowgray}{white}
+\begin{tabularx}{\textwidth}{@{}P{3cm}L@{}}
+\toprule
+\textbf{Weeks} & \textbf{Work} \\
+\midrule
+Oct 6 to 23 & Board and repository; local WordPress copy; inventory from module pages and embedded records; activity schema; \texttt{crawl\_toolkit}, \texttt{fetch\_page}, \texttt{validate\_activity}; gold and dev sets \\
+Oct 26 to Nov 6 & Extraction, fidelity, PII, asset, draft, and link check tools; pilot of about 5 activities \\
+Mid November & Progress update: pilot results, first evaluation, Claude cost estimate \\
+Nov 9 to 18 & All 46 activities to the practice site; guardrail with versus without runs; skill folder; IF usability test \\
+Nov 19 to 25 & Final evaluation, link list, guides, write up draft (Nov 20) \\
+Nov 26 to Dec 3 & Thanksgiving (light week); presentation rehearsal and handover \\
+\bottomrule
+\end{tabularx}
+\rowcolors{1}{}{}
+
+\textbf{Depends on October 8}: editor or staging access, Claude consent, freeze date, whether ratings, comments, and coach only resources move, domain plans, and final success targets.
+
+\section{Status, November 1}
+Built and tested: all nine tools, the three agents (with scripted model turns only), the fixed order pipeline, the skill folder, the offline evaluation (synthetic Toolkit, planted problems, guardrail ablation), and the WordPress plugin with a draft only role. The WordPress adapter passed integration tests against a local WordPress 6.5 site, including WordPress refusing a publish attempt by the migration account. Not yet done: a run on the live Toolkit (\texttt{cdp evaluate --live} needs a network that can reach the site), \texttt{cdp agent-eval} and \texttt{cdp extraction-eval} (need an Anthropic API key), IF approval of the plugin and staging access, IF consent to process content with Claude, and the staff usability test.
+
+\end{document}

@@ -1,0 +1,556 @@
+{
+ "read_on": "2026-11-01",
+ "source": "public activity pages of collaborativediscussionproject.com, read in a browser; structure only, no activity wording",
+ "record_location": "script#wix-warmup-data -> appsWarmupData.dataBinding.dataStore.recordsByCollectionId.Items1",
+ "collections_on_page": [
+  "Items1",
+  "MockActivities",
+  "CommentRatings",
+  "comments",
+  "ActivityClusters",
+  "ActivityMaterials"
+ ],
+ "record_fields": [
+  "title",
+  "module",
+  "activityPageModuleTitle",
+  "activityContributor",
+  "activityDescription",
+  "activityTime",
+  "activityIcons",
+  "activityGoals",
+  "activityInstructions",
+  "activityReflectionJournal",
+  "activityPracticeJournal",
+  "activityResources",
+  "activityShortDescription",
+  "activityPdf",
+  "activityPdFs",
+  "activityPdfUrl",
+  "activityImage",
+  "activityImageAltText",
+  "activityImageCredit",
+  "urlNoSpaceText",
+  "link-items-1-title",
+  "_updatedDate"
+ ],
+ "rich_text_node_types": [
+  "HEADING",
+  "PARAGRAPH",
+  "TEXT",
+  "BULLETED_LIST",
+  "ORDERED_LIST",
+  "LIST_ITEM",
+  "HTML",
+  "IMAGE"
+ ],
+ "decorations": [
+  "BOLD",
+  "LINK",
+  "UNDERLINE"
+ ],
+ "instructions_layout": "heading 'Instructions', heading 'Set Up: Prepare for the Activity', then 'Step <Word>: <Title> (<N> min)' headings; some steps carry '(optional)' after the step word",
+ "module_sizes": {
+  "1": 10,
+  "2": 9,
+  "3": 10,
+  "4": 9,
+  "5": 8
+ },
+ "every_activity_has": [
+  "pdf",
+  "reflection journal",
+  "practice journal",
+  "additional resources"
+ ],
+ "activities": [
+  {
+   "number": "1.1",
+   "duration_minutes": 40,
+   "steps": 5,
+   "level": "Beginner",
+   "tags": [
+    "Asynchronous",
+    "Professional",
+    "Facilitation"
+   ]
+  },
+  {
+   "number": "1.5",
+   "duration_minutes": 60,
+   "steps": 4,
+   "level": "Beginner",
+   "tags": [
+    "Connection",
+    "Facilitation",
+    "Professional"
+   ]
+  },
+  {
+   "number": "1.9",
+   "duration_minutes": 50,
+   "steps": 4,
+   "level": "Advanced",
+   "tags": [
+    "Asynchronous",
+    "Professional"
+   ]
+  },
+  {
+   "number": "1.2",
+   "duration_minutes": 35,
+   "steps": 4,
+   "level": "Beginner",
+   "tags": [
+    "Facilitation",
+    "Playful",
+    "Tactile"
+   ]
+  },
+  {
+   "number": "1.6",
+   "duration_minutes": 45,
+   "steps": 4,
+   "level": "Beginner",
+   "tags": [
+    "Facilitation",
+    "Tactile"
+   ]
+  },
+  {
+   "number": "1.10",
+   "duration_minutes": 65,
+   "steps": 5,
+   "level": "Beginner",
+   "tags": [
+    "Connection",
+    "Facilitation",
+    "Professional"
+   ]
+  },
+  {
+   "number": "1.3",
+   "duration_minutes": 60,
+   "steps": 5,
+   "level": "Beginner",
+   "tags": [
+    "Asynchronous",
+    "Facilitation",
+    "Professional"
+   ]
+  },
+  {
+   "number": "1.7",
+   "duration_minutes": 50,
+   "steps": 4,
+   "level": "Beginner",
+   "tags": [
+    "Asynchronous",
+    "Facilitation",
+    "Professional"
+   ]
+  },
+  {
+   "number": "1.4",
+   "duration_minutes": 50,
+   "steps": 3,
+   "level": "Beginner",
+   "tags": [
+    "Connection",
+    "Listening"
+   ]
+  },
+  {
+   "number": "1.8",
+   "duration_minutes": 55,
+   "steps": 4,
+   "level": "Beginner",
+   "tags": [
+    "Asynchronous",
+    "Connection",
+    "Facilitation"
+   ]
+  },
+  {
+   "number": "2.1",
+   "duration_minutes": 60,
+   "steps": 4,
+   "level": "Beginner",
+   "tags": [
+    "Asynchronous",
+    "Facilitation",
+    "Warm-up"
+   ]
+  },
+  {
+   "number": "2.5",
+   "duration_minutes": 40,
+   "steps": 4,
+   "level": "Beginner",
+   "tags": [
+    "Playful",
+    "Warm-up"
+   ]
+  },
+  {
+   "number": "2.9",
+   "duration_minutes": 50,
+   "steps": 6,
+   "level": "Beginner",
+   "tags": [
+    "Playful",
+    "Warm-up"
+   ]
+  },
+  {
+   "number": "2.2",
+   "duration_minutes": 50,
+   "steps": 4,
+   "level": "Beginner",
+   "tags": [
+    "Asynchronous",
+    "Professional",
+    "Connection"
+   ]
+  },
+  {
+   "number": "2.6",
+   "duration_minutes": 40,
+   "steps": 5,
+   "level": "Beginner",
+   "tags": [
+    "Facilitation",
+    "Playful",
+    "Listening"
+   ]
+  },
+  {
+   "number": "2.3",
+   "duration_minutes": 50,
+   "steps": 4,
+   "level": "Beginner",
+   "tags": [
+    "Asynchronous",
+    "Playful",
+    "Warm-up"
+   ]
+  },
+  {
+   "number": "2.7",
+   "duration_minutes": 40,
+   "steps": 4,
+   "level": "Beginner",
+   "tags": [
+    "Playful",
+    "Warm-up"
+   ]
+  },
+  {
+   "number": "2.4",
+   "duration_minutes": 60,
+   "steps": 5,
+   "level": "Beginner",
+   "tags": [
+    "Asynchronous",
+    "Professional"
+   ]
+  },
+  {
+   "number": "2.8",
+   "duration_minutes": 55,
+   "steps": 6,
+   "level": "Advanced",
+   "tags": [
+    "Asynchronous",
+    "Professional",
+    "Playful"
+   ]
+  },
+  {
+   "number": "3.1",
+   "duration_minutes": 60,
+   "steps": 6,
+   "level": "Advanced",
+   "tags": [
+    "Facilitation",
+    "Listening"
+   ]
+  },
+  {
+   "number": "3.5",
+   "duration_minutes": 50,
+   "steps": 4,
+   "level": "Beginner",
+   "tags": [
+    "Asynchronous",
+    "Professional",
+    "Facilitation"
+   ]
+  },
+  {
+   "number": "3.9",
+   "duration_minutes": 50,
+   "steps": 6,
+   "level": "Beginner",
+   "tags": [
+    "Asynchronous",
+    "Professional"
+   ]
+  },
+  {
+   "number": "3.2",
+   "duration_minutes": 55,
+   "steps": 4,
+   "level": "Advanced",
+   "tags": [
+    "Connection",
+    "Listening",
+    "Emotion"
+   ]
+  },
+  {
+   "number": "3.6",
+   "duration_minutes": 60,
+   "steps": 5,
+   "level": "Beginner",
+   "tags": [
+    "Asynchronous",
+    "Professional"
+   ]
+  },
+  {
+   "number": "3.10",
+   "duration_minutes": 55,
+   "steps": 6,
+   "level": "Advanced",
+   "tags": [
+    "Asynchronous",
+    "Professional"
+   ]
+  },
+  {
+   "number": "3.3",
+   "duration_minutes": 50,
+   "steps": 4,
+   "level": "Advanced",
+   "tags": [
+    "Tactile",
+    "Listening"
+   ]
+  },
+  {
+   "number": "3.7",
+   "duration_minutes": 45,
+   "steps": 4,
+   "level": "Beginner",
+   "tags": [
+    "Playful",
+    "Listening"
+   ]
+  },
+  {
+   "number": "3.4",
+   "duration_minutes": 50,
+   "steps": 4,
+   "level": "Beginner",
+   "tags": [
+    "Playful",
+    "Warm-up"
+   ]
+  },
+  {
+   "number": "3.8",
+   "duration_minutes": 55,
+   "steps": 6,
+   "level": "Advanced",
+   "tags": [
+    "Asynchronous",
+    "Professional",
+    "Facilitation"
+   ]
+  },
+  {
+   "number": "4.1",
+   "duration_minutes": 60,
+   "steps": 6,
+   "level": "Beginner",
+   "tags": [
+    "Connection",
+    "Listening"
+   ]
+  },
+  {
+   "number": "4.5",
+   "duration_minutes": 35,
+   "steps": 5,
+   "level": "Beginner",
+   "tags": [
+    "Facilitation",
+    "Connection",
+    "Emotion"
+   ]
+  },
+  {
+   "number": "4.9",
+   "duration_minutes": 45,
+   "steps": 4,
+   "level": "Beginner",
+   "tags": [
+    "Playful",
+    "Connection"
+   ]
+  },
+  {
+   "number": "4.2",
+   "duration_minutes": 50,
+   "steps": 8,
+   "level": "Beginner",
+   "tags": [
+    "Connection",
+    "Listening"
+   ]
+  },
+  {
+   "number": "4.6",
+   "duration_minutes": 55,
+   "steps": 4,
+   "level": "Beginner",
+   "tags": [
+    "Professional",
+    "Facilitation"
+   ]
+  },
+  {
+   "number": "4.3",
+   "duration_minutes": 60,
+   "steps": 7,
+   "level": "Beginner",
+   "tags": [
+    "Playful",
+    "Warm-up"
+   ]
+  },
+  {
+   "number": "4.7",
+   "duration_minutes": 45,
+   "steps": 5,
+   "level": "Advanced",
+   "tags": [
+    "Playful",
+    "Facilitation",
+    "Listening"
+   ]
+  },
+  {
+   "number": "4.4",
+   "duration_minutes": 50,
+   "steps": 5,
+   "level": "Beginner",
+   "tags": [
+    "Asynchronous",
+    "Professional"
+   ]
+  },
+  {
+   "number": "4.8",
+   "duration_minutes": 50,
+   "steps": 5,
+   "level": "Beginner",
+   "tags": [
+    "Facilitation",
+    "Connection"
+   ]
+  },
+  {
+   "number": "5.1",
+   "duration_minutes": 50,
+   "steps": 5,
+   "level": "Beginner",
+   "tags": [
+    "Facilitation",
+    "Playful",
+    "Connection"
+   ]
+  },
+  {
+   "number": "5.5",
+   "duration_minutes": 60,
+   "steps": 4,
+   "level": "Beginner",
+   "tags": [
+    "Tactile",
+    "Connection",
+    "Listening"
+   ]
+  },
+  {
+   "number": "5.2",
+   "duration_minutes": 50,
+   "steps": 4,
+   "level": "Beginner",
+   "tags": [
+    "Asynchronous",
+    "Professional",
+    "Facilitation"
+   ]
+  },
+  {
+   "number": "5.6",
+   "duration_minutes": 60,
+   "steps": 6,
+   "level": "Advanced",
+   "tags": [
+    "Asynchronous",
+    "Playful"
+   ]
+  },
+  {
+   "number": "5.3",
+   "duration_minutes": 50,
+   "steps": 3,
+   "level": "Beginner",
+   "tags": [
+    "Facilitation",
+    "Connection"
+   ]
+  },
+  {
+   "number": "5.7",
+   "duration_minutes": 55,
+   "steps": 4,
+   "level": "Beginner",
+   "tags": [
+    "Playful",
+    "Tactile"
+   ]
+  },
+  {
+   "number": "5.4",
+   "duration_minutes": 55,
+   "steps": 5,
+   "level": "Beginner",
+   "tags": [
+    "Connection",
+    "Facilitation",
+    "Listening"
+   ]
+  },
+  {
+   "number": "5.8",
+   "duration_minutes": 60,
+   "steps": 5,
+   "level": "Advanced",
+   "tags": [
+    "Professional",
+    "Listening"
+   ]
+  }
+ ],
+ "activities_with_images_in_instructions": 5,
+ "note_embeds": "No iframe embeds were found. The HTML blocks are text boxes and are migrated as callout blocks.",
+ "html_text_boxes": {
+  "activities": 37,
+  "boxes": 58,
+  "content": "paragraphs, bold spans, and links only; no iframes, scripts, or images (checked 2026-11-02)"
+ }
+}

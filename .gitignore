@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.egg-info/
+.venv/
+.pytest_cache/
+
+# Run outputs: may contain IF content or credentials; never commit
+state*.json
+state*.tmp
+publish.log
+.cache/
+export/
+out/
+eval/results/live_eval.json
+board/board_url.txt
+.env
+
+# LaTeX build files
+*.aux
+*.log
+*.out
+*.toc
+*.nav
+*.snm
+*.fdb_latexmk
+*.fls

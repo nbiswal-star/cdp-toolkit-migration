@@ -1,0 +1,16 @@
+WordPress integration test run, 2026-11-01
+Site: local WordPress 6.5.5 with SQLite (PHP 8.3 built-in server), plugin wordpress/cdp-activity 0.3.0 active.
+Not yet run against MySQL, Breakdance, FacetWP, or IF's host.
+Command: python -m pytest -v tests/test_wordpress_live.py (CDP_WP_* set to a CDP Drafter account; admin password set for the last two tests)
+
+tests/test_wordpress_live.py::test_drafts_created_idempotently PASSED    [ 10%]
+tests/test_wordpress_live.py::test_embeds_kept_for_allowed_hosts_and_flagged_otherwise PASSED [ 20%]
+tests/test_wordpress_live.py::test_plugin_removes_iframes_from_other_hosts[<iframe src="https://evil.example/x"> </iframe>] PASSED [ 30%]
+tests/test_wordpress_live.py::test_plugin_removes_iframes_from_other_hosts[<iframe data-src="https://www.youtube.com/embed/a" src="https://evil.example/x"></iframe>] PASSED [ 40%]
+tests/test_wordpress_live.py::test_plugin_removes_iframes_from_other_hosts[<iframe src="https://evil.example/x">fallback\n</iframe>] PASSED [ 50%]
+tests/test_wordpress_live.py::test_plugin_removes_iframes_from_other_hosts[<iframe src="https://evil.example/x">] PASSED [ 60%]
+tests/test_wordpress_live.py::test_unknown_tag_needs_an_administrator PASSED [ 70%]
+tests/test_wordpress_live.py::test_drafter_cannot_publish PASSED         [ 80%]
+tests/test_wordpress_live.py::test_published_post_is_never_overwritten PASSED [ 90%]
+tests/test_wordpress_live.py::test_redirects_use_published_permalinks PASSED [100%]
+============================== 10 passed in 4.01s ==============================

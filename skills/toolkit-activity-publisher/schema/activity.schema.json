@@ -1,0 +1,167 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Toolkit Activity",
+ "type": "object",
+ "required": [
+  "activity_id",
+  "number",
+  "title",
+  "module_number",
+  "description",
+  "duration_minutes",
+  "level",
+  "goals",
+  "steps"
+ ],
+ "properties": {
+  "activity_id": {
+   "type": "string",
+   "description": "slug of the old Toolkit URL"
+  },
+  "number": {
+   "type": "string",
+   "pattern": "^\\d+\\.\\d+$"
+  },
+  "title": {
+   "type": "string",
+   "minLength": 1
+  },
+  "module_number": {
+   "type": "integer",
+   "minimum": 1,
+   "maximum": 5
+  },
+  "module_title": {
+   "type": "string"
+  },
+  "description": {
+   "type": "string",
+   "minLength": 1
+  },
+  "duration_minutes": {
+   "type": "integer",
+   "minimum": 5,
+   "maximum": 240
+  },
+  "level": {
+   "enum": [
+    "Beginner",
+    "Advanced"
+   ]
+  },
+  "tags": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "goals": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "string"
+   }
+  },
+  "setup": {
+   "$ref": "#/$defs/blocks"
+  },
+  "steps": {
+   "type": "array",
+   "minItems": 2,
+   "items": {
+    "type": "object",
+    "required": [
+     "number",
+     "title",
+     "heading",
+     "blocks"
+    ],
+    "properties": {
+     "number": {
+      "type": "integer"
+     },
+     "title": {
+      "type": "string"
+     },
+     "minutes": {
+      "type": [
+       "integer",
+       "null"
+      ]
+     },
+     "optional": {
+      "type": "boolean"
+     },
+     "heading": {
+      "type": "string",
+      "description": "source heading, verbatim"
+     },
+     "blocks": {
+      "$ref": "#/$defs/blocks"
+     }
+    }
+   }
+  },
+  "reflection_journal": {
+   "$ref": "#/$defs/blocks"
+  },
+  "practice_journal": {
+   "$ref": "#/$defs/blocks"
+  },
+  "resources": {
+   "$ref": "#/$defs/blocks"
+  },
+  "contributor": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "pdf_url": {
+   "type": [
+    "string",
+    "null"
+   ]
+  }
+ },
+ "$defs": {
+  "blocks": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "type"
+    ],
+    "properties": {
+     "type": {
+      "enum": [
+       "heading",
+       "paragraph",
+       "list",
+       "html",
+       "image"
+      ]
+     },
+     "text": {
+      "type": "string"
+     },
+     "items": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "ordered": {
+      "type": "boolean"
+     },
+     "html": {
+      "type": "string"
+     },
+     "src": {
+      "type": "string"
+     }
+    }
+   }
+  }
+ }
+}
