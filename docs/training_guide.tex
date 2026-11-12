@@ -1,0 +1,260 @@
+\input{preamble}
+\usepackage{amssymb}
+\hypersetup{pdftitle={Toolkit Activities: Staff Training Guide},pdfauthor={Interactivity Foundation}}
+\lhead{\small Toolkit Activities: Staff Training Guide}
+\rhead{\small Interactivity Foundation}
+\newcommand{\chk}{$\square$\ }
+\newcommand{\menu}[1]{\textbf{#1}}
+\newcommand{\tbd}[1]{\textit{[#1]}}
+\sloppy
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Toolkit Activities: Staff Training Guide}\\[3pt]
+{\large Reviewing, publishing, adding, and revising Collaborative Discussion Toolkit activities on the IF website}\\[2pt]
+{\small Version 1, November 2026 \textbullet{} Prepared for IF staff by the CMU Heinz College student team}
+\end{center}
+
+\section{About This Guide}
+This guide is for IF staff who look after the Collaborative Discussion Toolkit on the IF website. It covers four jobs: reviewing activities copied over from the old Toolkit site, adding a new activity, revising a published one, and checking an activity before you publish it. You do not need technical skills; everything happens in the normal WordPress editor. Terms such as \textit{add-on}, \textit{draft}, and \textit{embed} are explained in the glossary (Section 10). Items in italic square brackets, like \tbd{link}, are details IF fills in before training.
+
+\subsection*{What's ready and what's pending (November 2026)}
+\rowcolors{2}{rowgray}{white}
+\begin{tabularx}{\textwidth}{@{}LP{2.2cm}P{3.6cm}@{}}
+\toprule
+\textbf{Item} & \textbf{Status} & \textbf{Who decides or does it} \\
+\midrule
+The Toolkit Activities add-on on the IF website & Pending & IF's website manager approves and installs \\
+A test copy of the IF website to practise on & To confirm & IF \\
+Moving the 46 activities across & Pending & Team, after the add-on is installed \\
+Using Claude with Toolkit content (Option B in Section 4) & Pending & IF approves; IF's Claude account \\
+Rule for personal data found in activities (Section 3) & Pending & IF \\
+A paid Claude plan for IF, and its monthly cost & Pending & Team confirms in the mid-November update; IF decides \\
+IF owner for the Toolkit after December 3 & Pending & IF names \\
+The by-hand steps in Section 4 (Option A) and Section 5 & Written; tried only on the team's practice site & Staff try them in the practice exercise (Section 8) \\
+\bottomrule
+\end{tabularx}
+\rowcolors{1}{}{}
+
+\subsection*{Where things are}
+\begin{itemize}
+  \item IF website dashboard: \tbd{IF website address}/wp-admin. You need a login with the \textbf{Editor} or \textbf{Administrator} role; Authors and Contributors cannot see Toolkit Activities.
+  \item Test copy of the website (if IF has one): \tbd{test site address}. Practise there, never on the live site.
+  \item Old Toolkit site (the original of every activity): collaborativediscussionproject.com, online until \tbd{date IF ends the Wix plan}.
+  \item The skill folder, with the fill-in template, the checklist, and a sample activity: \tbd{shared drive link}. The files ending in \texttt{.md} are plain text; open them in TextEdit (Mac) or Notepad (Windows). Keep them as plain text: don't paste them into Word or Google Docs. The WordPress steps inside the folder's SKILL.md file are older; follow this guide (Sections 4 and 5) instead. A separate Step-by-Step Walkthrough shows each step with pictures.
+  \item The review list for the move (Section 3): \tbd{shared spreadsheet link}.
+\end{itemize}
+
+\subsection*{Training session plan (about 60 minutes)}
+\rowcolors{2}{rowgray}{white}
+\begin{tabularx}{\textwidth}{@{}P{2.2cm}L@{}}
+\toprule
+\textbf{Time} & \textbf{What we cover} \\
+\midrule
+5 min & Tour of the screens (Section 2) \\
+15 min & Reviewing and publishing a copied draft; what the review notes mean (Section 3) \\
+20 min & Adding an activity by hand: practice exercise steps 1 and 2 (Sections 4 and 8) \\
+5 min & Revising, and going back to an earlier version: practice exercise step 3 (Sections 5 and 8) \\
+5 min & Demo of Option B with Claude, only if IF has approved it (Section 4) \\
+10 min & Questions; the checklist and quick reference (Sections 6 and 11) \\
+\bottomrule
+\end{tabularx}
+\rowcolors{1}{}{}
+
+\section{A Quick Tour}
+Button and menu names below are from current WordPress; where older versions use a different name, both are given.
+\begin{itemize}
+  \item \textbf{Where activities live.} In the dashboard menu, click \menu{Toolkit Activities}. Each activity is its own page.
+  \item \textbf{Drafts and published pages.} A draft is visible only to logged-in staff, and appears on the public website only after someone publishes it. Files you upload to the Media library are different: anyone with a file's link can open it, even before you publish.
+  \item \textbf{The main text box} holds everything from the description down to Additional Resources.
+  \item \textbf{Activity details} (a box in the right-hand panel, below the other settings): Number, Time (minutes), Submitted by, PDF link, and Image credit.
+  \item \textbf{Modules}, \textbf{Levels}, and \textbf{Tags (formats)} (right-hand panel): tick boxes used to filter activities. Levels are Beginner and Advanced. The tags are Asynchronous, Connection, Emotion, Facilitation, Listening, Playful, Professional, Tactile, and Warm-up. Editors can technically add new tags (the link says ``Add Category''), but don't: a new tag needs an IF administrator's approval.
+  \item \textbf{Featured image}: the activity's main photo, if it has one.
+  \item \textbf{The CDP Drafter account} (CDP stands for Collaborative Discussion Project) is the account the moving tool will use. It can create drafts but cannot publish. Copied drafts will show it as their author; that is expected. Do not log in with it. Its password is cancelled after the move.
+\end{itemize}
+
+\section{Reviewing and Publishing Copied Activities}
+After IF installs the add-on and the team runs the move, each activity that passes its checks arrives as a draft. The team then sends you the review list \tbd{spreadsheet link}, one row per activity that needs a person. Each row says either:
+\begin{itemize}
+  \item \textbf{``Drafted, please check''}: a draft exists, but something needs a look (usually a note or a broken link); or
+  \item \textbf{``Not drafted yet''}: the checks held it back, so no draft exists yet.
+\end{itemize}
+Each row has up to eight short notes. When you finish a row, put your initials and the date in its Done column.
+
+\subsection*{What the review notes mean}
+\rowcolors{2}{rowgray}{white}
+\begin{tabularx}{\textwidth}{@{}P{3.3cm}LL@{}}
+\toprule
+\textbf{Note begins with} & \textbf{What it means} & \textbf{What to do} \\
+\midrule
+wording differs in \ldots & The copy does not match the original. $-$ marks words in the original that are missing from the copy; $+$ marks words in the copy that are not in the original. Example: \texttt{-quickly +slowly}. & Compare with the old Toolkit page and tell the team. \\
+missing from \ldots & A sentence from the original is missing. & Tell the team, with the activity number. \\
+numbers: \ldots & A step time, total time, or other number does not match. & Check the original. If the original itself does not add up, ask the author. \\
+flag: \ldots{} in \ldots & Personal data (an email address, phone number, or the name of someone who commented), or text that looks like an instruction to an AI system, such as ``ignore previous instructions'', was found in the named part. & Follow IF's personal-data rule (below). Remove instruction-like text. \\
+broken link: \ldots & A link or file does not open. & Find the right link, or ask the author. \\
+rule: \ldots & Something breaks a Toolkit rule, such as missing learning goals or a gap in step numbering. & Ask the author to supply what's missing. Don't add it yourself. \\
+note: \ldots & Worth a look, but not blocking. & Check it when you review the draft. \\
+\bottomrule
+\end{tabularx}
+\rowcolors{1}{}{}
+
+\textbf{IF's personal-data rule:} \tbd{to be decided by IF}. For example: remove participants' and commenters' names, emails, and phone numbers unless the author confirms they should be public, and keep the credited author under ``Submitted by''. If unsure, leave it as a draft and ask \tbd{IF owner}.
+
+\subsection*{``Not drafted yet'' rows}
+Until December 3: reply in the review list with your decision on each note. The team then releases the activity so a draft is made, and you make any removals in that draft before publishing. After December 3: add the activity by hand (Section 4), using the old Toolkit page as your source document.
+
+\subsection*{To review and publish a draft}
+\begin{enumerate}
+  \item Go to \menu{Toolkit Activities}, click the draft's title (or hover over it and click \menu{Edit}).
+  \item Preview it: click the \menu{View} (laptop) icon at the top right, then \menu{Preview in new tab} (older WordPress: a \menu{Preview} button).
+  \item Go through the checklist in Section 6, with the old Toolkit page open side by side.
+  \item If anything fails: until December 3, leave it as a draft and note the failed item in the review list. You may still make personal-data removals under IF's rule yourself. After December 3, correct the draft so it matches the old Toolkit page word for word, apart from any personal-data removals.
+  \item When everything passes, click \menu{Publish}, then \menu{Publish} again in the panel that opens.
+\end{enumerate}
+Reviewing in batches works well, for example one module at a time.
+
+\section{Adding a New Activity}
+First prepare the activity in the standard layout, by hand (Option A) or with Claude (Option B). Then enter it in WordPress.
+
+\subsection*{The golden rule: copy, do not write}
+Every sentence goes in exactly as the author wrote it: same words, same punctuation, same order. Do not fix typos, shorten, merge, or improve anything. If something looks wrong, write it under ``Questions for the author'' and ask. If the author can't be reached, ask \tbd{IF owner}. Don't publish until it's settled.
+
+\subsection*{Option A: by hand}
+The fill-in template (\texttt{templates/activity.md} in the skill folder) is a plain-text list of every part of an activity, in order. Make a copy, and replace each \texttt{\{\ldots\}} with text copied from the document. Leave a blank line between every paragraph, heading, list, and \texttt{[Embed: link]} line, or WordPress will join lines together. Keep the \texttt{\#} and \texttt{-} marks: when you paste into WordPress, \texttt{\#} lines become headings and \texttt{-} lines become bullet points. Copy from the plain-text file, not from Word or Google Docs; otherwise the \texttt{\#} and \texttt{-} marks stay as plain characters. If that happens, undo (Ctrl+Z or Command+Z) and paste again from plain text. If you prefer, skip the template and type straight into WordPress in the same order.
+\begin{itemize}
+  \item Keep step headings in the form \textit{Step Two: Title (10 min)}, and mark optional steps \textit{Step Four (optional): Title (15 min)}.
+  \item Where the document has slides or a video, write \texttt{[Embed: link]} on its own line.
+  \item The short list at the top of the template (Module, Time, Level, Tags, Submitted by, PDF, Image credit) goes into the right-hand panel and Activity details, not the main text box.
+\end{itemize}
+
+\subsection*{Option B: with Claude (only if IF has approved it)}
+\begin{enumerate}
+  \item Once only: an owner of IF's Claude organisation account (not the website administrator) uploads the zipped skill folder under \menu{Customize > Skills}, shares it with staff, and makes sure code execution is turned on. IF should confirm these menu names on its own account.
+  \item Use only IF's approved Claude account for Toolkit content, never a personal one.
+  \item Go to claude.ai, sign in, start a new chat, attach the activity document with the paperclip, and type: \textit{Prepare this Toolkit activity for the IF website using the toolkit-activity-publisher skill.}
+  \item Claude returns the filled template, then two lists: \textbf{Flagged} (personal data or anything needing a person) and \textbf{Questions for the author}. Read both. Use the copy button under the reply.
+  \item Check Claude's output against the document yourself. Claude follows the golden rule, but you are the final check.
+\end{enumerate}
+
+\subsection*{Entering the activity in WordPress}
+\begin{enumerate}
+  \item \textbf{Upload the PDF:} \menu{Media > Add Media File} (some versions say \menu{Add New Media File}). Upload the file, then click \menu{Copy URL to clipboard} next to it. Keep this tab open.
+  \item Go to \menu{Toolkit Activities > Add New Activity} (older WordPress may say \menu{Add New Post}).
+  \item \textbf{Title box:} type the number, a space, and the title, for example \textit{1.2 Comparing Group Strengths}.
+  \item \textbf{Main text box:} paste everything from the description down to Additional Resources. For each \texttt{[Embed: link]} line, delete the line and add the video or slides:
+  \begin{itemize}
+    \item \textbf{YouTube or Vimeo:} click \menu{+}, search for and choose \menu{YouTube Embed} or \menu{Vimeo Embed}, and paste the normal watch link (youtube.com/watch?v=\ldots{} or vimeo.com/\ldots).
+    \item \textbf{Google Slides:} in Google Slides, choose \menu{File > Share > Publish to web}, open the \menu{Embed} tab, click \menu{Publish}, confirm with \menu{OK}, and copy the code. In WordPress, click \menu{+}, choose \menu{Custom HTML}, and paste the code.
+  \end{itemize}
+  \item \textbf{Activity details:} fill in Number, Time (numbers only, for example \textit{55}), Submitted by, PDF link (go back to the Media tab, click \menu{Copy URL to clipboard} again, and paste it here, because other copying in between replaces it), and Image credit if there is one.
+  \item In the right-hand panel, tick the \textbf{Modules}, \textbf{Levels}, and \textbf{Tags (formats)}. For a photo, click \menu{Set featured image} and upload it or pick it from the Media library.
+  \item Preview it (Section 3, step 2), go through the checklist in Section 6, then click \menu{Publish} twice.
+\end{enumerate}
+
+\needspace{9\baselineskip}
+\section{Revising a Published Activity}
+\begin{enumerate}
+  \item Go to \menu{Toolkit Activities}, search for the number (for example 2.6), and click \menu{Edit}. Do not add a new activity: that would create a second page with a new address.
+  \item Replace only the text that changed. If the PDF changed, upload the new one and update the PDF link in Activity details.
+  \item Preview it with the \menu{View} (laptop) icon, not the arrow icon to its left, which opens the live page without your changes. Go through the checklist, then click \menu{Save} (called \menu{Update} in WordPress 6.5 and earlier). The change is live straight away.
+\end{enumerate}
+\textbf{To go back:} open the activity, click \menu{Revisions} in the right-hand panel (it appears only once the activity has been changed at least once), pick the version you want, and click \menu{Restore This Revision}. On a published activity, this changes the live page at once. (Pending: the team confirms on the test site before December 3 that this also restores the Activity details box.)
+
+\needspace{10\baselineskip}
+\section{Review Checklist (before you click Publish)}
+Tick every box. If one fails, do not publish. For a copied draft, follow Section 3, step 4. For a new or revised activity, fix it or ask the author.
+
+\textbf{Wording}\\
+\chk Title and number match the source document.\\
+\chk Every learning goal, step, and journal prompt is present, in the same order.\\
+\chk No sentence was reworded, shortened, or added.
+
+\textbf{Numbers}\\
+\chk Each step heading shows the same minutes as the source.\\
+\chk The total time is copied exactly from the source. If it does not equal the sum of the step times, change neither number; ask the author.\\
+\chk Steps are numbered One, Two, Three, and so on, with no gaps.
+
+\textbf{Page details}\\
+\chk Modules, Levels, and Tags (formats) are ticked correctly, and Activity details are filled in.\\
+\chk The PDF opens and is the right activity.\\
+\chk Embedded slides or videos (if any) load on the preview page.\\
+\chk Links open the right pages.
+
+\textbf{Privacy and safety}\\
+\chk Any email address, phone number, or participant name listed under ``Flagged'' has been handled under IF's personal-data rule. (The credited author under ``Submitted by'' is fine.)\\
+\chk No text addressed to an AI system (for example ``ignore previous instructions'').
+
+\textbf{Publish}\\
+\chk The preview looks right on a computer and on a phone.\\
+\chk Click Publish. (The CDP Drafter account cannot publish; only IF staff can.)
+
+The skill folder has the same checks (\texttt{checklists/review.md}); if you change a check here, change it there too.
+
+\section{Common Questions}
+\begin{itemize}
+  \item \textbf{I can't see Toolkit Activities in the menu.} Your account needs the Editor or Administrator role. Ask an administrator.
+  \item \textbf{My video or slides show as a plain link or an error.} WordPress couldn't embed that link. Use the watch link for YouTube or Vimeo, and Custom HTML for Google Slides (Section 4). Embeds should come only from Google, YouTube, and Vimeo; for anything else, add a normal link or ask the website manager.
+  \item \textbf{The activity doesn't show on the Toolkit listing page.} Drafts never appear publicly. After publishing, the listing page may need its filter index refreshed; ask the website manager.
+  \item \textbf{Activities are sorted oddly (1.10 before 1.2).} This happens if the listing page sorts by number as text. The website manager can fix it with a numeric sort key.
+  \item \textbf{I made a mistake on a published page.} Use Revisions to restore the earlier version (Section 5).
+  \item \textbf{The total time doesn't add up.} Don't change either number. Ask the author.
+\end{itemize}
+
+\section{Practice Exercise}
+Do this on the test copy of the website if IF has one, otherwise on a practice site the team provides; never on the live site. Use the invented sample activity ``1.2 Comparing Group Strengths'' (\texttt{examples/short.md} in the skill folder). It has the real Toolkit layout but made-up wording. (The Step-by-Step Walkthrough uses practice numbers 9.1 to 9.3 instead, so its examples can't be confused with real activities.) Its slide link and PDF link are placeholders. For the slides, just delete the \texttt{[Embed: \ldots]} line. For the PDF, upload any PDF and use its link. The sample has an image credit but no photo, so leave the featured image empty.
+\begin{enumerate}
+  \item Add it as a new activity, following Section 4. Tick Module 1, Beginner, and the tags Emotion and Connection.
+  \item Go through the checklist (Section 6) and publish it. Skip the embedded slides item, since you deleted the placeholder.
+  \item Revise it: change only the minutes in the Step Two heading, from 25 to 20, and click \menu{Save}. The total no longer adds up; that is on purpose. Then use Revisions to go back to 25.
+  \item When you finish, move the practice activity to the Trash, because 1.2 is also a real activity number, and delete the practice PDF from the Media library (uploaded files stay public).
+\end{enumerate}
+Note how long the first activity took. As a rough guide, not a requirement, the goal is a ready-to-review activity in about 15 minutes. Tell \tbd{IF owner} what was confusing.
+
+\section{Getting Help}
+\begin{itemize}
+  \item Until December 3, 2026: Joshua Kalakoti, the student team's client contact, at \tbd{email}, for anything about the activities, the review list, or this guide.
+  \item WordPress roles, the add-on, embeds, or the listing page: IF's website manager, \tbd{name and email}.
+  \item After December 3: \tbd{IF owner for the Toolkit}, who also looks after this guide and the skill folder.
+\end{itemize}
+
+\needspace{14\baselineskip}
+\section{Glossary}
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}P{3.6cm}L@{}}
+Add-on (plugin) & A small addition to WordPress that creates the Toolkit Activities section. \\
+The move & Copying the 46 activities from the old Toolkit site to the IF website, as drafts. \\
+Moving tool & The program the student team built to do the move and check every copy. \\
+CDP Drafter & The account the moving tool uses. It can create drafts but cannot publish. \\
+Draft & A page only logged-in staff can see. It goes public when someone publishes it. \\
+Embed & Slides or a video shown inside the page, instead of a link. \\
+Featured image & The activity's main photo. \\
+Tags (formats) & Labels such as Playful or Listening that help visitors filter activities. \\
+Skill folder & A folder of instructions, the template, the checklist, and examples, used by staff and by Claude. \\
+Template & The plain-text list of every part of an activity, in order, to fill in. \\
+Test copy & A private copy of the IF website for practice, if IF has one. \\
+\end{tabularx}
+
+\newpage
+\section{Quick Reference}
+\textbf{Add a new activity}
+\begin{enumerate}
+  \item Prepare the text (template by hand, or Claude if approved). Copy, do not write.
+  \item \menu{Media > Add Media File}: upload the PDF. Keep the tab open for its link.
+  \item \menu{Toolkit Activities > Add New Activity}. Title: number, space, title.
+  \item Paste the text. Replace each \texttt{[Embed: link]} with a YouTube Embed, Vimeo Embed, or Custom HTML (Google Slides) block.
+  \item Activity details: Number, Time (numbers only), Submitted by, PDF link (copy it again from the Media tab), Image credit.
+  \item Tick Modules, Levels, Tags (formats). Set the featured image.
+  \item Preview, run the checklist, click \menu{Publish} twice.
+\end{enumerate}
+
+\textbf{Revise a published activity}
+\begin{enumerate}
+  \item \menu{Toolkit Activities}, search the number, \menu{Edit}. Never add a second copy.
+  \item Change only what changed. New PDF: upload it and update the PDF link.
+  \item Preview, run the checklist, \menu{Save}. To undo: \menu{Revisions}, then \menu{Restore This Revision}.
+\end{enumerate}
+
+\textbf{Tags:} Asynchronous, Connection, Emotion, Facilitation, Listening, Playful, Professional, Tactile, Warm-up. \textbf{Levels:} Beginner, Advanced.
+
+\textbf{Never:} reword the author's text, publish with a failed checklist item, add a new tag without an administrator's approval, or use the CDP Drafter account.
+
+\end{document}
